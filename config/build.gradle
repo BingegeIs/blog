@@ -1,3 +1,6 @@
 dependencies {
+    compileOnly project(':common')
+
     implementation('org.springframework.boot:spring-boot-starter')
+    compileOnly("org.springframework.boot:spring-boot-starter-security")
 }
