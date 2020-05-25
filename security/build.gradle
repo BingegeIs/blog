@@ -1,5 +1,4 @@
 dependencies {
-    compileOnly project(':admin-api')
     compileOnly project(':common')
     compileOnly project(':config')
 

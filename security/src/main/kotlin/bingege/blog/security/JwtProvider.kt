@@ -1,6 +1,6 @@
 package bingege.blog.security
 
-import bingege.blog.admin.Admin
+import bingege.blog.common.base.Base
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import java.time.ZonedDateTime
@@ -8,7 +8,7 @@ import java.util.Date
 
 class JwtProvider(val secret: String) {
 
-    fun build(user: Admin, expireAt: ZonedDateTime): String {
+    fun build(user: Base, expireAt: ZonedDateTime): String {
         return Jwts.builder()
             .setSubject(user.id.toString())
             .setExpiration(Date.from(expireAt.toInstant()))
@@ -16,7 +16,7 @@ class JwtProvider(val secret: String) {
             .compact()
     }
 
-    fun build(user: Admin, expireSeconds: Long): String {
+    fun build(user: Base, expireSeconds: Long): String {
         return build(user, ZonedDateTime.now().plusSeconds(expireSeconds))
     }
 

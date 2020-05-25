@@ -83,7 +83,8 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
                 "/swagger-resources/**",
                 "/configuration/**",
                 "/swagger-ui.html",
-                "/webjars/**"
+                "/webjars/**",
+                "/api/auth/**"
             ).permitAll()
             .antMatchers("/api/**")
             .authenticated()
