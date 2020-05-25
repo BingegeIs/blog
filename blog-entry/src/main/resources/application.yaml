@@ -10,4 +10,5 @@ spring:
 
 global:
   secret: adkfjsdhfdsl
+  duration: 30D
 
