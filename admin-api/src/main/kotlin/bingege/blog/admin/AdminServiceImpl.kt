@@ -28,4 +28,13 @@ class AdminServiceImpl(
     override fun login(account: String, password: String): Admin {
         TODO()
     }
+
+    override fun find(id: Long): Admin {
+        return findById(id).orElseThrow()
+    }
+
+    override fun findByAccount(account: String): Admin {
+        TODO("Not yet implemented")
+    }
+
 }

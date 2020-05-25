@@ -19,4 +19,8 @@ interface AdminService {
      * 登录
      */
     fun login(account: String, password: String): Admin
+
+    fun find(id: Long): Admin
+
+    fun findByAccount(account: String): Admin
 }

@@ -1,6 +1,8 @@
 package bingege.blog.admin
 
 import bingege.blog.common.base.Base
+import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.userdetails.UserDetails
 import java.time.ZonedDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -15,9 +17,9 @@ class Admin(
     var account: String,
 
     // 密码
-    var password: String
+    private var password: String
 
-) : Base() {
+) : Base(), UserDetails {
 
     // 昵称
     var nickname: String? = null
@@ -30,4 +32,20 @@ class Admin(
 
     // 头像
     var avatar: String? = null
+
+    override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
+        return mutableListOf()
+    }
+
+    override fun isEnabled(): Boolean = true
+
+    override fun getUsername(): String = account
+
+    override fun isCredentialsNonExpired(): Boolean = true
+
+    override fun getPassword(): String = password
+
+    override fun isAccountNonExpired(): Boolean = true
+
+    override fun isAccountNonLocked(): Boolean = true
 }
