@@ -1,4 +1,4 @@
-package bingege.blog.component.admin
+package bingege.blog.admin
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

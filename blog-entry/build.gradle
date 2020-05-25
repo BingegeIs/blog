@@ -1,0 +1,8 @@
+dependencies {
+    implementation project(':common')
+    implementation project(':admin-api')
+    implementation project(':security')
+    runtimeOnly("org.postgresql:postgresql")
+    compileOnly('org.springframework.boot:spring-boot-starter-web')
+    kapt('org.springframework.boot:spring-boot-configuration-processor')
+}
