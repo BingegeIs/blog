@@ -1,5 +1,5 @@
 rootProject.name = 'blog'
-include 'admin-api'
+include 'core'
 include 'common'
 include 'blog-entry'
 include 'security'
