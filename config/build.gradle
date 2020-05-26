@@ -3,4 +3,5 @@ dependencies {
 
     implementation('org.springframework.boot:spring-boot-starter')
     compileOnly("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 }
