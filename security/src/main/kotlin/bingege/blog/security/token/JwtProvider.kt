@@ -1,4 +1,4 @@
-package bingege.blog.security
+package bingege.blog.security.token
 
 import bingege.blog.common.base.Base
 import io.jsonwebtoken.Jwts

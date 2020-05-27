@@ -1,7 +1,7 @@
 package bingege.blog.admin.payload
 
-data class LoginRequest(
-    val username: String,
-    val password: String
-)
+class LoginRequest {
+    var username: String? = null
+    var password: String? = null
+}
 

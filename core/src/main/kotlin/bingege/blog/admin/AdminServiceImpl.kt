@@ -2,16 +2,17 @@ package bingege.blog.admin
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
 
 @Service
 class AdminServiceImpl(
-    @Autowired val adminRepository: AdminRepository,
-    @Autowired val passwordEncoder: PasswordEncoder
+    @Autowired val adminRepository: AdminRepository
 ) : AdminService, AdminRepository by adminRepository {
 
+    val q: QAdmin = QAdmin.admin
 
     override fun exist(): Boolean {
         val count = count()
@@ -20,7 +21,7 @@ class AdminServiceImpl(
 
     override fun register(account: String, password: String): Admin {
         if (exist()) throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Already Exist")
-        val encodePwd = passwordEncoder.encode(password)
+        val encodePwd = BCryptPasswordEncoder().encode(password)
         return Admin(account, encodePwd)
             .let(this::save)
     }
@@ -34,7 +35,8 @@ class AdminServiceImpl(
     }
 
     override fun findByAccount(account: String): Admin {
-        TODO("Not yet implemented")
+        val expression = q.account.eq(account)
+        return findOne(expression).orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND) }
     }
 
 }

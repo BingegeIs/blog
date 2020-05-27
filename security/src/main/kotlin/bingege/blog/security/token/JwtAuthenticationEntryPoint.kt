@@ -1,4 +1,4 @@
-package bingege.blog.security
+package bingege.blog.security.token
 
 import org.slf4j.LoggerFactory
 import org.springframework.security.core.AuthenticationException
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 import java.io.IOException
 
-@Component
+//@Component
 class JwtAuthenticationEntryPoint : AuthenticationEntryPoint {
 
     @Throws(IOException::class, ServletException::class)
