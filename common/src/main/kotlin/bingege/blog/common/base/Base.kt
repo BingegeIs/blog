@@ -46,4 +46,14 @@ abstract class Base : Serializable {
     @LastModifiedDate
     @Column(columnDefinition = "timestamptz")
     open var updateAt: ZonedDateTime = ZonedDateTime.now()
+
+    open var delete: Boolean = false
+
+    @Column(columnDefinition = "timestamptz")
+    open var deleteAt: ZonedDateTime? = null
+
+    open fun delete() {
+        this.delete = true
+        this.deleteAt = ZonedDateTime.now()
+    }
 }
