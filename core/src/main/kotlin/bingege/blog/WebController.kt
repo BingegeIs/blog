@@ -1,10 +1,12 @@
 package bingege.blog
 
+import io.swagger.annotations.Api
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
+@Api(tags = ["A 主页"])
 class WebController {
 
     @RequestMapping(value = ["index", "/"])
@@ -13,12 +15,5 @@ class WebController {
         model.addAttribute("name", "nobody")
         model.addAttribute("saying", "fuck")
         return "index"
-    }
-
-
-    @RequestMapping("/test")
-    fun test(model: Model): String {
-        model.addAttribute("welcome", "Happy !")
-        return "test"
     }
 }
