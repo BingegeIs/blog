@@ -36,4 +36,8 @@ class ArticleServiceImpl(
         return ArticleCategory(name)
             .let(articleCategoryRepository::save)
     }
+
+    override fun getCategory(): List<ArticleCategory> {
+        return articleCategoryRepository.findAll()
+    }
 }

@@ -6,7 +6,9 @@ import bingege.blog.article.payload.UpdateArticle
 import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Pageable
 import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
@@ -49,5 +51,11 @@ class ArticleController(
     @ApiOperation("撤回文章")
     fun suppress(@PathVariable id: Long) {
         articleService.suppress(id)
+    }
+
+    @GetMapping("/category")
+    @ApiOperation("文章分类列表")
+    fun getCategory(): List<ArticleCategory> {
+        return articleService.getCategory()
     }
 }
