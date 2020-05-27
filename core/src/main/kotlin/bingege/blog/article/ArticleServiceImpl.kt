@@ -2,6 +2,7 @@ package bingege.blog.article
 
 import bingege.blog.article.payload.CreateArticle
 import bingege.blog.article.payload.UpdateArticle
+import bingege.blog.common.base.BaseService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service
 class ArticleServiceImpl(
     @Autowired val articleRepository: ArticleRepository,
     @Autowired val articleCategoryRepository: ArticleCategoryRepository
-) : ArticleService, ArticleRepository by articleRepository {
+) : BaseService<Article>, ArticleService, ArticleRepository by articleRepository {
 
     override fun create(createArticle: CreateArticle): Article {
         TODO("Not yet implemented")

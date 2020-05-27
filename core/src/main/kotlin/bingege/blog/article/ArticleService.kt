@@ -2,9 +2,10 @@ package bingege.blog.article
 
 import bingege.blog.article.payload.CreateArticle
 import bingege.blog.article.payload.UpdateArticle
+import bingege.blog.common.base.BaseService
 
 
-interface ArticleService {
+interface ArticleService : BaseService<Article> {
 
     fun create(createArticle: CreateArticle): Article
 

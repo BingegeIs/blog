@@ -3,6 +3,7 @@ package bingege.blog.admin
 import bingege.blog.admin.payload.LoginRequest
 import bingege.blog.config.GlobalProperties
 import bingege.blog.security.JwtProvider
+import io.swagger.annotations.Api
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -15,6 +16,7 @@ import java.time.ZonedDateTime
 
 @RequestMapping("/api/auth")
 @RestController
+@Api(tags = ["R 认证"])
 class AuthController(
     @Autowired val adminService: AdminService,
     @Autowired val authenticationManager: AuthenticationManager,
