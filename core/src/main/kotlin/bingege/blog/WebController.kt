@@ -9,9 +9,6 @@ class WebController {
 
     @RequestMapping(value = ["index", "/"])
     fun index(model: Model): String {
-//        map["avatar"] = ""
-//        map["name"] = "nobody"
-//        map["saying"] = "text"
         model.addAttribute("avatar", "/image/20190815095735993296.jpeg")
         model.addAttribute("name", "nobody")
         model.addAttribute("saying", "fuck")
@@ -24,6 +21,4 @@ class WebController {
         model.addAttribute("welcome", "Happy !")
         return "test"
     }
-
-
 }
