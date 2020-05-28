@@ -47,7 +47,7 @@ class ArticleController(
         articleService.publish(id)
     }
 
-    @DeleteMapping("/{id}/suppress")
+    @PutMapping("/{id}/suppress")
     @ApiOperation("撤回文章")
     fun suppress(@PathVariable id: Long) {
         articleService.suppress(id)
