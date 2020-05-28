@@ -17,9 +17,10 @@ buildscript {
     }
 }
 
-//plugins {
+plugins {
 //    id "io.gitlab.arturbosch.detekt" version "1.0.0-RC12"
-//}
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
 
 subprojects {
     repositories {
@@ -71,9 +72,10 @@ subprojects {
 
     test {
         useJUnitPlatform()
-        testLogging.showStandardStreams = true
-        outputs.upToDateWhen { false }
-        systemProperty 'spring.profiles.active', 'test,local-test'
+//        jvmArgs '--enable-preview'
+//        testLogging.showStandardStreams = true
+//        outputs.upToDateWhen { false }
+//        systemProperty 'spring.profiles.active', 'test,local-test'
     }
 
     dependencies {
@@ -104,11 +106,14 @@ subprojects {
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
-        testImplementation('org.junit.jupiter:junit-jupiter-api')
+        testCompile "org.junit.jupiter:junit-jupiter-api:5.2.0"
+//        testCompile "org.junit.jupiter:junit-jupiter-params:5.2.0"
+        testRuntime "org.junit.jupiter:junit-jupiter-engine:5.2.0"
+//        testImplementation('org.junit.jupiter:junit-jupiter-api')
+//        testImplementation('org.junit.jupiter:junit-jupiter-engine')
         testImplementation('com.google.code.gson:gson')
         testImplementation('org.springframework.boot:spring-boot-starter-webflux')
         testImplementation("com.ninja-squad:springmockk:1.1.2")
-        testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
         testImplementation("org.springframework.security:spring-security-test:5.1.5.RELEASE")
     }
 

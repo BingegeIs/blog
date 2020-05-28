@@ -2,7 +2,7 @@ dependencies {
     compileOnly project(':common')
     compileOnly project(':security')
     compileOnly project(':config')
-    testCompileOnly project(':common')
+    testImplementation project(':common')
 
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation("org.springframework.boot:spring-boot-starter-web")
