@@ -34,10 +34,7 @@ import javax.persistence.MappedSuperclass
 abstract class Base : Serializable {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(updatable = false, nullable = false)
-    open var id: UUID = UUID(0, 0)
+    open var id: Long = 0L
 
     @CreatedDate
     @Column(columnDefinition = "timestamptz")
