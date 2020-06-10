@@ -1,3 +1,10 @@
+apply plugin: 'org.springframework.boot'
+
+bootJar {
+    baseName = 'app'
+    version = '0.0.1'
+}
+
 dependencies {
     implementation project(':common')
     implementation project(':admin-api')
