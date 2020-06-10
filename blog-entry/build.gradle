@@ -1,8 +1,14 @@
 apply plugin: 'org.springframework.boot'
+apply plugin: 'com.palantir.docker'
 
 bootJar {
     baseName = 'app'
-    version = '0.0.1'
+}
+
+docker {
+    name "${project.group}/${project.name}:${project.version}"
+    dockerfile file('Dockerfile')
+    files tasks.bootJar.outputs
 }
 
 dependencies {
